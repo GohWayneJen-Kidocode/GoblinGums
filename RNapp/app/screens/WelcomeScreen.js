@@ -1,8 +1,16 @@
 // rsf
 import React from 'react';
-import { ImageBackground, StyleSheet, View, Image, Text } from 'react-native';
+import { ImageBackground, StyleSheet, View, Image, Text, Button, Pressable } from 'react-native';
 
-function WelcomeScreen(props) {
+function WelcomeScreen({ navigation }) {
+
+    const pressHandlerLogin = () => {
+        navigation.navigate('Login');
+    }
+    const pressHandlerSignUp = () => {
+        navigation.navigate('SignUp');
+    }
+
     return (
         <ImageBackground source={require('../assets/img/WSimg.jpg')} style={styles.background}>
             <View style={styles.logoContainer}>
@@ -10,12 +18,12 @@ function WelcomeScreen(props) {
                 <Image source={require('../assets/img/logo.png')} style={styles.logo}></Image>
                 <Text style={styles.slogan}>Rubbin' Foreheads!</Text>
             </View>
-            <View style={styles.loginBtn}>
+            <Pressable style={styles.loginBtn} onPress={pressHandlerLogin}>
                 <Text style={styles.accBtn}>Login</Text>
-            </View>
-            <View style={styles.signinBtn}>
+            </Pressable>
+            <Pressable style={styles.signinBtn} onPress={pressHandlerSignUp}>
                 <Text style={styles.accBtn}>Sign Up</Text>
-            </View>
+            </Pressable>
         </ImageBackground>
     );
 }
@@ -29,12 +37,14 @@ const styles = StyleSheet.create({
     loginBtn:{
         width: '100%',
         height: 70,
+        justifyContent: 'center',
         backgroundColor: '#FF8CDE'
     },
     signinBtn:{
         width: '100%',
         height: 70,
-        backgroundColor: '#FF6294'
+        backgroundColor: '#FF6294',
+        justifyContent: 'center'
     },
     logo: {
         width: 100,
@@ -61,7 +71,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#fff',
         fontSize: 20,
-        top: 20
     }
 })
 
