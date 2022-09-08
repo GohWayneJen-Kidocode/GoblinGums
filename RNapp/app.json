@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "RNapp",
-    "slug": "RNapp",
+    "name": "Goblin Gums",
+    "owner": "kido6099-gohwaynejen",
+    "slug": "goblin-gums",
     "version": "1.0.0",
     "orientation": "default",
     "icon": "./app/assets/icon.png",
@@ -28,6 +29,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "My first react native app"
   }
 }

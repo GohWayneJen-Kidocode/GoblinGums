@@ -3,6 +3,7 @@ import { createAppContainer } from 'react-navigation';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import Login from '../screens/Login';
 import SignUp from '../screens/SignUp';
+import Menu from '../screens/Menu';
 
 const screens = {
     Home: {
@@ -13,6 +14,9 @@ const screens = {
     },
     SignUp: {
         screen: SignUp
+    },
+    Menu: {
+        screen: Menu
     }
 }
 

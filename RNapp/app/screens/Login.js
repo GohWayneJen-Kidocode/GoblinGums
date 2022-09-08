@@ -1,10 +1,14 @@
 import React from 'react';
-import { SafeAreaView, Text, View, StyleSheet, TextInput } from 'react-native';
+import { SafeAreaView, Text, View, StyleSheet, TextInput, Pressable} from 'react-native';
 
 const bingus = "Login"
 const monke = "sign up"
 
-function Login(props) {
+function Login({navigation}) {
+  
+    const pressHandlerSignUp = () => {
+        navigation.navigate('SignUp');
+    }
     return (
         <View style={styles.mainContainer}>
             <SafeAreaView style={styles.titleContainer}>
@@ -16,18 +20,20 @@ function Login(props) {
             <View style={styles.inputContainer}>
                 <View style={styles.emailContainer}>
                     <Text style={styles.emailTitle}>Email</Text>
-                    <TextInput style={styles.emailInput} autoComplete='email' placeholder='Enter your email.'/>
+                    <TextInput style={styles.emailInput} autoComplete='email' disableFullscreenUI={true} placeholder='Enter your email.'/>
                 </View>
                 <View style={styles.emailContainer}>
                     <Text style={styles.emailTitle} >Password</Text>
-                    <TextInput style={styles.emailInput} secureTextEntry={true} placeholder='Enter your password.'/>
+                    <TextInput style={styles.emailInput} secureTextEntry={true} disableFullscreenUI={true} placeholder='Enter your password.'/>
                 </View>
             </View>
             <View style={styles.footerContainer}>
                 <View style={styles.loginBtn}>
                     <Text style={styles.loginText}>{bingus}</Text>
                 </View>
-                <Text style={styles.redirect}>Don't have an account? Click here to {monke}.</Text>
+                <Pressable onPress={pressHandlerSignUp}>
+                  <Text style={styles.redirect}>Dont have an account? Click here to {monke}.</Text>
+                </Pressable>
             </View>
         </View>
     );
@@ -103,5 +109,5 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         fontSize: 15,
         color: '#000'
-    }
+    },
 })
